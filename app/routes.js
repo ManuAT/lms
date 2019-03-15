@@ -1,14 +1,14 @@
-var Todo = require('./models/todo');
+var lms = require('./models/lms');
 
-function getTodos(res) {
-    Todo.find(function (err, todos) {
+function getvalues(res) {
+    lms.find(function (err, lmss) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }
 
-        res.json(todos); // return all todos in JSON format
+        res.json(lmss); // return all todos in JSON format
     });
 };
 
@@ -16,16 +16,16 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     // get all todos
-    app.get('/api/todos', function (req, res) {
+    app.get('/api/lms', function (req, res) {
         // use mongoose to get all todos in the database
-        getTodos(res);
+        getvalues(res);
     });
 
     // create todo and send back all todos after creation
-    app.post('/api/todos', function (req, res) {
+    app.post('/api/lms', function (req, res) {
 
         // create a todo, information comes from AJAX request from Angular
-        Todo.create({
+        lms.create({
             text: req.body.text,
             done: false
         }, function (err, todo) {
@@ -33,20 +33,20 @@ module.exports = function (app) {
                 res.send(err);
 
             // get and return all the todos after you create another
-            getTodos(res);
+            getvalues(res);
         });
 
     });
 
     // delete a todo
-    app.delete('/api/todos/:todo_id', function (req, res) {
-        Todo.remove({
+    app.delete('/api/lms/:todo_id', function (req, res) {
+        lms.remove({
             _id: req.params.todo_id
         }, function (err, todo) {
             if (err)
                 res.send(err);
 
-            getTodos(res);
+            getvalues(res);
         });
     });
 

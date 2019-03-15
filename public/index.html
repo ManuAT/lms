@@ -23,17 +23,21 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
 	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/services/lmss.js"></script> <!-- load our todo service -->
 	<script src="js/core.js"></script> <!-- load our main application -->
 
 </head>
 <!-- SET THE CONTROLLER -->
 <body ng-controller="mainController">
 	<div class="container">
-
+			
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
 			<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
+
+		<div class="col-sm-4 col-sm-offset-4">
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="getdata()">Start</button>
 		</div>
 
 		<!-- TODO LIST -->
@@ -45,7 +49,7 @@
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+						<input type="checkbox" ng-click="deleteid(todo._id)"> {{ todo.text }}
 					</label>
 				</div>
 
@@ -67,15 +71,15 @@
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createid()">Add</button>
 				</form>
 			</div>
 		</div>
 
-		<div class="text-center text-muted">
+		<!-- <div class="text-center text-muted">
 			<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
 			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
-		</div>
+		</div> -->
 
 	</div>
 
