@@ -22,7 +22,7 @@ THE APP SHOWS THEM SOME CLUES, TIMER, PUZZLES, MAP OF THE CAMPUS WHICH WILL GUID
 3. Start the server: `node server.js`
 4. View in browser at `http://localhost:8080`
 
-![Todo-aholic](http://i.imgur.com/ikyqgrn.png)
+![LMS App](http://i.imgur.com/ikyqgrn.png)
 
 RULES
 
